@@ -2,17 +2,19 @@
 
 {% block content %}
 <div class="col-md-2"> </div>
-    <h1 class="mt-5">Forma</h1>
-    
-    <div class="card shadow col-md-8">
-        <form method="POST">
-            {% csrf_token %}
-            {{form.name}}
-            {{form.surname}}
-            {{form.email}}
-            {{form.pasword}}
-            <button class="btn btn-success mb-3 " type="submit">Save</button>
-        </form>
-        <h1>{{error}}</h1>
-    </div>
+    <h1 class="mt-5 mb-4 text-center">Forma</h1>
+
+        <div class="col-md-2"></div>
+        <div class="card shadow col-md-8 ml-5">
+            <form method="POST">
+                {% csrf_token %}
+                {{form.name}}
+                {{form.surname}}
+                {{form.email}}
+                {{form.pasword}}
+                <button class="btn btn-success mb-3 justify-content-end"  type="submit">Save</button>
+            </form>
+            <h1>{{error}}</h1>
+        </div>
+
 {% endblock  %}

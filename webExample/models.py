@@ -14,4 +14,6 @@ class Meta :
     verbose_name = 'User'
     verbose_name_plural = 'Users'
 
+def get_absolute_url(self):
+    return f'users/{self.id}'
     

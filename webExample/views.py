@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Users
 from .forms import UsersForm
+from django.views.generic import UpdateView, DeleteView
 
 # Create your views here.
 
@@ -14,6 +15,21 @@ def about(request):
 def users(request):
     obj = Users.objects.all()
     return render(request, 'App/users.html', {'obj': obj})
+
+
+class updateUserView(UpdateView):
+    model = Users
+    
+    template_name = 'App/addUser.html'
+    
+    form_class = UsersForm
+
+
+class deleteUserView(DeleteView):
+    model = Users
+    success_url = '/users/  '
+    template_name = 'App/deleteUser.html'
+
 
 def addUser(request):
     error = ''
@@ -33,4 +49,6 @@ def addUser(request):
         'error':error,
     }
     return render(request, 'App/addUser.html', data)
+    
+
     
